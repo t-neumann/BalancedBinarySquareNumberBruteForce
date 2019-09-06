@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-# Efficient permutation of non-redundante binary numbers: https://stackoverflow.com/a/37584849
+# Efficient permutation of non-redundant binary numbers:
+# https://stackoverflow.com/a/37584849
 
 # Date located in: -
 from __future__ import print_function
@@ -21,11 +22,13 @@ def binaryShuffle(length=30, ones=15):
     global globalCount
 
     result = []
-    rr = ['0'] * length  ## initialize empty list with ZEROS of given length
+    rr = ['0'] * length  ## initialize empty list with
+                         ## ZEROS of given length
     for c in itertools.combinations(range(length), ones):
         r = rr[:] ## create a copy of initialized list
         for x in c:
-            r[x] = '1' ## Change ZERO to ONE based on different combinations of positions
+            r[x] = '1' ## Change ZERO to ONE based on different
+                       ## combinations of positions
         number = "".join(r)
 
         if isSquare(int(number)):
@@ -36,7 +39,8 @@ def binaryShuffle(length=30, ones=15):
         globalCount += 1
 
         if globalCount % 10000000 == 0:
-            print(str(globalCount) + " possible solutions evaluated.",file=sys.stderr)
+            print(str(globalCount) + " possible solutions evaluated.",
+            file=sys.stderr)
 
 globalCount = 0
 
